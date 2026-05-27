@@ -345,12 +345,11 @@ function modificaOpinion($objeto) {
 // ================================================================
 function conectar2() {
     try {
-        // Datos reales de tu servidor de InfinityFree extraídos de tus capturas
-        $host     = 'sql109.infinityfree.com';        // El Servidor que sale arriba en tu phpMyAdmin
-        $dbname   = 'if0_42034295_reviews';          // El Nombre real de tu Base de datos
-        $usuario  = 'if0_42034295';                  // Tu Usuario de MySQL
-        $clave    = '9w3QWIhs0zZDd5';                // La Contraseña de tu cuenta de hosting
-        $puerto   = '3306';                          // Puerto estándar de MySQL
+        $host     = 'zephyr.proxy.rlwy.net';
+        $dbname   = 'railway';
+        $usuario  = 'root';
+        $clave    = 'eFEmhnmpCiehUijGqDZkQULSEZgPzooT';
+        $puerto   = '56705';
 
         $opciones = array(
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
