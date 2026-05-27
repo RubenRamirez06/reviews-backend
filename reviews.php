@@ -345,12 +345,12 @@ function modificaOpinion($objeto) {
 // ================================================================
 function conectar2() {
     try {
-        // Si getenv existe lee Railway, si no, usa tus credenciales locales de XAMPP
-        $host     = getenv('MYSQLHOST') ?: 'localhost';
-        $dbname   = getenv('MYSQLDATABASE') ?: 'reviews_app';
-        $usuario  = getenv('MYSQLUSER') ?: 'root';
-        $clave    = getenv('MYSQLPASSWORD') ?: '';
-        $puerto   = getenv('MYSQLPORT') ?: '3306';
+        // Datos reales de tu servidor de InfinityFree extraídos de tus capturas
+        $host     = 'sql109.infinityfree.com';        // El Servidor que sale arriba en tu phpMyAdmin
+        $dbname   = 'if0_42034295_reviews';          // El Nombre real de tu Base de datos
+        $usuario  = 'if0_42034295';                  // Tu Usuario de MySQL
+        $clave    = '9w3QWIhs0zZDd5';                // La Contraseña de tu cuenta de hosting
+        $puerto   = '3306';                          // Puerto estándar de MySQL
 
         $opciones = array(
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
