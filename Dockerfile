@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+# Corregir el error de "More than one MPM loaded" desactivando mpm_event
+RUN a2dismod mpm_event || true
+
 # Instalar extensiones necesarias para conectar PHP con MySQL (PDO y MySQLi)
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
