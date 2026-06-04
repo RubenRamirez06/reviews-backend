@@ -62,9 +62,10 @@ if ($objeto != null) {
             break;
 
         case "modificaContenido":
-            modificaContenido($objeto);
-            print json_encode(listadoContenidos($objeto->tipo, $objeto->filtro_plataforma));
-            break;
+    modificaContenido($objeto);
+    $plataforma = isset($objeto->filtro_plataforma) ? $objeto->filtro_plataforma : 0;
+    print json_encode(listadoContenidos($objeto->tipo, $plataforma));
+    break;
 
         // ── OPINIONES ─────────────────────────────────────────────
         case "opiniones":
