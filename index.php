@@ -247,15 +247,18 @@ function eliminaContenido($id) {
 function modificaContenido($objeto) {
     global $conn;
     try {
-        $sql = "UPDATE contenidos SET
-                    titulo        = ?,
-                    descripcion   = ?,
-                    tipo          = ?,
-                    id_plataforma = ?,
-                    foto          = ?,
-                    an20          = ?
+        // CORREGIDO: ahora usa 'anio' y actualiza todos los campos
+        $sql = "UPDATE contenidos SET 
+                    titulo        = ?, 
+                    descripcion   = ?, 
+                    tipo          = ?, 
+                    id_plataforma = ?, 
+                    foto          = ?, 
+                    anio          = ? 
                 WHERE id = ?";
-        $conn->prepare($sql)->execute(array(
+        
+        $stm = $conn->prepare($sql);
+        $stm->execute(array(
             $objeto->titulo,
             $objeto->descripcion,
             $objeto->tipo,
@@ -266,8 +269,10 @@ function modificaContenido($objeto) {
         ));
         return true;
     } catch (Exception $e) {
-        die($e->getMessage());
-        return false;
+        // Esto te ayuda a ver qué está pasando si algo falla
+        header('HTTP/1.1 500 Internal Server Error');
+        print json_encode(array("error" => "Error al actualizar: " . $e->getMessage()));
+        exit();
     }
 }
 
